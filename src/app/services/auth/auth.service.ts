@@ -7,11 +7,11 @@ import * as auth0 from 'auth0-js';
 export class AuthService {
 
   auth0 = new auth0.WebAuth({
-    clientID: process.env.CLIENT_ID,
-    domain: process.env.DOMAIN,
+    clientID: 'vOVPX5dyYWbFmCkGb2ALyvt3O7xyyNUy',
+    domain: 'fdash4.auth0.com',
     responseType: 'token id_token',
-    audience: `https://${process.env.DOMAIN}/userinfo`,
-    redirectUri: process.env.AUTH_REDIRECT,
+    audience: `https://fdash4.auth0.com/userinfo`,
+    redirectUri: 'http://localhost:4200/callback',
     scope: 'openid'
   });
 
