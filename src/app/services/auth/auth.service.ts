@@ -39,7 +39,7 @@ export class AuthService {
       } else if (err) {
         console.error(`Error: ${err.error}`);
       }
-      this.router.navigate(['inventory']);
+      this.router.navigate(['dashboard']);
     });
   }
 

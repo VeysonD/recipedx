@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './services/auth/auth.guard';
 
 import { CallbackComponent } from './callback/callback.component';
-import { InventoryComponent } from './inventory/inventory.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { TouristComponent } from './tourist/tourist.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
   {
@@ -22,8 +22,8 @@ const routes: Routes = [
     path: 'home', component:
     TouristComponent },
   {
-    path: 'inventory',
-    component: InventoryComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
     canActivate: [
       AuthGuard
     ]

@@ -11,6 +11,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { InventoryComponent } from './inventory/inventory.component';
 import { TouristComponent } from './tourist/tourist.component';
 import { CallbackComponent } from './callback/callback.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CallbackComponent } from './callback/callback.component';
     AppComponent,
     InventoryComponent,
     TouristComponent,
-    CallbackComponent
+    CallbackComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
