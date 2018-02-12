@@ -31,6 +31,18 @@ export class AuthService {
     }
   }
 
+  handleAuthenticated(): void {
+    this.auth0.parseHash(window.location.hash, (err, authResult) => {
+      if (authResult && authResult.accessToken && authResult.idToken) {
+        window.location.hash = '';
+        this._getProfile(authResult);
+      } else if (err) {
+        console.error(`Error: ${err.error}`);
+      }
+      this.router.navigate(['login']);
+    });
+  }
+
   login(): void {
     this.auth0.authorize();
   }
@@ -56,7 +68,7 @@ export class AuthService {
   }
 
   private _setSession(authResult, profile): void {
-    const expTime = authResult.exipresIn * 1000 + Date.now();
+    const expTime = authResult.expiresIn * 1000 + Date.now();
 
     localStorage.setItem('token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);

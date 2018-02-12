@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AuthService } from './services/auth/auth.service';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
 import { TouristComponent } from './tourist/tourist.component';
+import { CallbackComponent } from './callback/callback.component';
 
 
 @NgModule({
@@ -15,7 +18,8 @@ import { TouristComponent } from './tourist/tourist.component';
     AppComponent,
     InventoryComponent,
     LoginComponent,
-    TouristComponent
+    TouristComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,9 @@ import { TouristComponent } from './tourist/tourist.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
