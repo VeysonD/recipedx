@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InventoryComponent } from './inventory/inventory.component';
 import { LoginComponent } from './login/login.component';
+import { TouristComponent } from './tourist/tourist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     InventoryComponent,
-    LoginComponent
+    LoginComponent,
+    TouristComponent
   ],
   imports: [
     BrowserModule,
