@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-tourist',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TouristComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.handleAuthenticated();
   }
 
 }

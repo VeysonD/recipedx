@@ -6,7 +6,6 @@ import { AuthGuard } from './services/auth/auth.guard';
 
 import { CallbackComponent } from './callback/callback.component';
 import { InventoryComponent } from './inventory/inventory.component';
-import { LoginComponent } from './login/login.component';
 import { TouristComponent } from './tourist/tourist.component';
 
 const routes: Routes = [
@@ -28,9 +27,6 @@ const routes: Routes = [
     canActivate: [
       AuthGuard
     ]
-  },
-  {
-    path: 'login', component: LoginComponent
   }
 ];
 

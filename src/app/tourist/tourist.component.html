@@ -1,3 +1,25 @@
-<p>
-  tourist works!
-</p>
+<div id="page-wrapper">
+  <section class="banner">
+    <h2>Gotani Recipes DX</h2>
+    <p>Saving your family legacy in one place with Angular 4!</p>
+    <button
+      class="btn btn-primary btn-margin"
+      *ngIf="!authService.authenticated"
+      (click)="authService.login()">
+        Login
+    </button>
+
+    <button
+      class="btn btn-primary btn-margin"
+      *ngIf="authService.authenticated"
+      routerLink="/inventory">
+        Back to Inventory
+    </button>
+    <button
+      class="btn btn-primary btn-margin"
+      *ngIf="authService.authenticated"
+      (click)="authService.logout()">
+        Logout
+    </button>
+  </section>
+</div>

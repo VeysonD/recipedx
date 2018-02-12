@@ -9,7 +9,6 @@ import { AuthGuard } from './services/auth/auth.guard';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InventoryComponent } from './inventory/inventory.component';
-import { LoginComponent } from './login/login.component';
 import { TouristComponent } from './tourist/tourist.component';
 import { CallbackComponent } from './callback/callback.component';
 
@@ -18,7 +17,6 @@ import { CallbackComponent } from './callback/callback.component';
   declarations: [
     AppComponent,
     InventoryComponent,
-    LoginComponent,
     TouristComponent,
     CallbackComponent
   ],
