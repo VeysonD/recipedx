@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './services/auth/auth.service';
+import { AuthGuard } from './services/auth/auth.guard';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -28,7 +29,8 @@ import { CallbackComponent } from './callback/callback.component';
     HttpClientModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })
