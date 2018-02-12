@@ -19,6 +19,13 @@ export class HeroService {
     private messageService: MessageService,
     private http: HttpClient) { }
 
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, httpOptions).pipe(
+      tap((hero: Hero) => this.log(`added hero with id=${hero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    )
+  }
+
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     // Todo: send the message _after fetching the hero
