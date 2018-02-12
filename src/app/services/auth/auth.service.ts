@@ -44,7 +44,7 @@ export class AuthService {
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   private setSession(authResult): void {

@@ -7,8 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { TouristComponent } from './tourist/tourist.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tourist', pathMatch: 'full' },
-  { path: 'tourist', component: TouristComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: TouristComponent },
   { path: 'inventory', component: InventoryComponent },
   { path: 'login', component: LoginComponent }
 ];
