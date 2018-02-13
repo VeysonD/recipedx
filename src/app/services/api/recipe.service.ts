@@ -6,11 +6,6 @@ import { of } from 'rxjs/observable/of';
 
 import { Recipe } from './../../recipe';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-}
 
 @Injectable()
 export class RecipeService {
@@ -19,7 +14,15 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   getRecipes(): Observable<Recipe[]> {
-    return this.http.get<Recipe[]>(this.recipeApi + '/recipes')
+    const token = localStorage.getItem('token');
+
+    console.log('What is the darn token:', token);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    }
+    return this.http.get<Recipe[]>(this.recipeApi + '/recipes', httpOptions)
       .pipe(
         catchError(this.handleError('getRecipes', []))
       );
