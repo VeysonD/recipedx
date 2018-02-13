@@ -15,6 +15,7 @@ import { CallbackComponent } from './callback/callback.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewComponent } from './view/view.component';
+import { UploadComponent } from './upload/upload.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ViewComponent } from './view/view.component';
     CallbackComponent,
     DashboardComponent,
     NavbarComponent,
-    ViewComponent
+    ViewComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

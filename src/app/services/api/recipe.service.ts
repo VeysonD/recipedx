@@ -15,13 +15,12 @@ export class RecipeService {
 
   getRecipes(): Observable<Recipe[]> {
     const token = localStorage.getItem('token');
-
-    console.log('What is the darn token:', token);
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     }
+    
     return this.http.get<Recipe[]>(this.recipeApi + '/recipes', httpOptions)
       .pipe(
         catchError(this.handleError('getRecipes', []))
