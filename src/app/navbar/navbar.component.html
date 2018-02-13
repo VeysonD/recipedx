@@ -1,3 +1,10 @@
 <p>
   navbar works!
 </p>
+<button
+  class="btn btn-primary btn-margin"
+  *ngIf="authService.authenticated"
+  (click)="authService.logout()"
+  routerLink="/home">
+    Logout
+</button>
