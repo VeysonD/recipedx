@@ -6,13 +6,13 @@
   <ul class="add-new">
     Add a recipe!
   </ul>
-  <ul
-    class="list-recipe"
-    *ngFor="let recipe of recipes"
-    (click)="recipeClick(recipe)">
-      {{recipe.title}}
+  <ul class="list-recipe">
+      <app-inventory
+        [recipes]="recipes"
+        (onRecipe)="recipeClick($event)">
+      </app-inventory>
   </ul>
-  <app-inventory></app-inventory>
+
 </div>
 <div class="primary-recipe">
   <app-view [recipe]="selectedRecipe"></app-view>

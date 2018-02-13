@@ -1,3 +1,5 @@
-<p>
-  inventory works!
-</p>
+<li
+  *ngFor="let recipe of recipes"
+  (click)="changeRecipe(recipe)">
+    {{recipe.title}}
+</li>

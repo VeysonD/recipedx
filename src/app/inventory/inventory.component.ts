@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Recipe } from './../recipe';
 
 @Component({
   selector: 'app-inventory',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
+  @Input() recipes: Recipe[];
+  @Output() onRecipe = new EventEmitter<Recipe>();
 
   constructor() { }
+
+  changeRecipe(recipe: Recipe): void {
+    this.onRecipe.emit(recipe);
+  }
 
   ngOnInit() {
   }

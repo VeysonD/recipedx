@@ -23,9 +23,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public recipeClick(recipe): void {
-    console.log('Clicked recipe:', recipe);
     this.selectedRecipe = recipe;
-    console.log('Selected recipe:', this.selectedRecipe);
   }
 
 }
