@@ -14,6 +14,7 @@ import { TouristComponent } from './tourist/tourist.component';
 import { CallbackComponent } from './callback/callback.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ViewComponent } from './view/view.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     TouristComponent,
     CallbackComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,
