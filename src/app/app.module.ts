@@ -12,6 +12,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { TouristComponent } from './tourist/tourist.component';
 import { CallbackComponent } from './callback/callback.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     InventoryComponent,
     TouristComponent,
     CallbackComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
