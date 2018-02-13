@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeService } from '../services/api/recipe.service';
+
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  recipes: Recipe[];
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipeService.getRecipes()
+      .subscribe(recipes => {
+        console.log('What are the recipes:', recipes);
+        this.recipes = recipes;
+      });
   }
 
 }

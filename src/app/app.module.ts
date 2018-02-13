@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './services/auth/auth.guard';
+import { RecipeService } from './services/api/recipe.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -33,6 +34,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   providers: [
     AuthService,
     AuthGuard,
+    RecipeService
   ],
   bootstrap: [AppComponent]
 })
