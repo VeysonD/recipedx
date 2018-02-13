@@ -1,5 +1,5 @@
 <li
   *ngFor="let recipe of recipes"
   (click)="changeRecipe(recipe)">
-    {{recipe.title}}
+    <button class="btn btn-primary">{{recipe.title}}</button>
 </li>
