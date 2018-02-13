@@ -2,4 +2,18 @@
 <p>
   dashboard works!
 </p>
-<app-inventory></app-inventory>
+<div class="list">
+  <ul class="add-new">
+    Add a recipe!
+  </ul>
+  <ul
+    class="list-recipe"
+    *ngFor="let recipe of recipes"
+    (click)="recipeClick(recipe)">
+      {{recipe.title}}
+  </ul>
+  <app-inventory></app-inventory>
+</div>
+<div class="primary-recipe">
+  <app-view [recipe]="selectedRecipe"></app-view>
+</div>

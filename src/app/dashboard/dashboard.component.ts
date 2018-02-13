@@ -10,6 +10,7 @@ import { Recipe } from '../recipe';
 })
 export class DashboardComponent implements OnInit {
   recipes: Recipe[];
+  selectedRecipe: Recipe;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -19,6 +20,12 @@ export class DashboardComponent implements OnInit {
         console.log('What are the recipes:', recipes);
         this.recipes = recipes;
       });
+  }
+
+  public recipeClick(recipe): void {
+    console.log('Clicked recipe:', recipe);
+    this.selectedRecipe = recipe;
+    console.log('Selected recipe:', this.selectedRecipe);
   }
 
 }
