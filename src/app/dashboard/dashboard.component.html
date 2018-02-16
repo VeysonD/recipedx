@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="list">
   <ul class="upload-recipe">
-    <app-upload></app-upload>
+    <div>Upload a new recipe</div>
   </ul>
   <ul class="list-recipe">
       <app-inventory
@@ -13,7 +13,7 @@
 </div>
 <div class="main-view">
   <div class="upload-recipe">
-    <!-- TODO: show upload component here and not in the inventory list -->
+    <app-upload></app-upload>
   </div>
   <div class="primary-recipe">
     <app-view [recipe]="selectedRecipe"></app-view>
