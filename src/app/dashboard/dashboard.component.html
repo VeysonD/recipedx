@@ -11,10 +11,12 @@
   </ul>
 
 </div>
+<!-- TODO: Add NgIf here to toggle between the two different views -->
 <div class="main-view">
   <div class="upload-recipe">
     <app-upload></app-upload>
   </div>
+  <!-- TODO: NgIf Selected recipe and upload recipe is false  -->
   <div class="primary-recipe">
     <app-view [recipe]="selectedRecipe"></app-view>
   </div>
