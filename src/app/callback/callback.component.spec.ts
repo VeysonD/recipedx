@@ -8,10 +8,15 @@ describe('CallbackComponent', () => {
   let component: CallbackComponent;
   let fixture: ComponentFixture<CallbackComponent>;
 
+  const authServiceStub = {
+    //TODO: fill in stub
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CallbackComponent ],
       imports: [ RouterTestingModule ],
+      // providers: [ {provide: AuthService, useValue: authServiceStub} ],
       providers: [ AuthService ]
     })
     .compileComponents();
