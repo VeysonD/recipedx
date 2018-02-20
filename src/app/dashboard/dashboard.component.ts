@@ -11,6 +11,7 @@ import { Recipe } from '../recipe';
 export class DashboardComponent implements OnInit {
   recipes: Recipe[];
   selectedRecipe: Recipe;
+  upload: boolean;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -20,10 +21,21 @@ export class DashboardComponent implements OnInit {
         console.log('What are the recipes:', recipes);
         this.recipes = recipes;
       });
+    this.upload = false;
   }
 
   public recipeClick(recipe): void {
     this.selectedRecipe = recipe;
+  }
+
+  public uploadClick(): void {
+    console.log('Upload has been clicked');
+    this.upload = !this.upload;
+  }
+
+  public uploadRecipe(): void {
+    console.log('Recipe upload has been clicked');
+    this.upload = false;
   }
 
 }

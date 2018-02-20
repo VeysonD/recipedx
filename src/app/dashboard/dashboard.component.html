@@ -1,9 +1,10 @@
 <app-navbar></app-navbar>
 <div class="list">
-  <ul class="upload-recipe">
-    <div>Upload a new recipe</div>
+  <ul class="upload-recipe" (click)="uploadClick()">
+    <li *ngIf="upload">Return home</li>
+    <li *ngIf="!upload">Upload a new recipe</li>
   </ul>
-  <ul class="list-recipe">
+  <ul class="list-recipe" (click)="uploadRecipe()">
       <app-inventory
         [recipes]="recipes"
         (onRecipe)="recipeClick($event)">
@@ -11,13 +12,11 @@
   </ul>
 
 </div>
-<!-- TODO: Add NgIf here to toggle between the two different views -->
 <div class="main-view">
-  <div class="upload-recipe">
+  <div class="upload-recipe" *ngIf="upload">
     <app-upload></app-upload>
   </div>
-  <!-- TODO: NgIf Selected recipe and upload recipe is false  -->
-  <div class="primary-recipe">
+  <div class="primary-recipe" *ngIf="!upload && selectedRecipe">
     <app-view [recipe]="selectedRecipe"></app-view>
   </div>
 </div>
