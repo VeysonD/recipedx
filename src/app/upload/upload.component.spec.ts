@@ -19,7 +19,7 @@ describe('UploadComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create an upload component', () => {
     expect(component).toBeTruthy();
   });
 });
