@@ -13,5 +13,11 @@
       <label for="Tags">Tags</label>
       <input type="text" class="form-control" id="tags">
     </div>
+    <div class="form-group">
+      <label for="dtag">Preselected Tags</label>
+      <select class="form-control" id="dtag" required>
+        <option *ngFor="let tag of dTags" [value]="tag">{{tag}}</option>
+      </select>
+    </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>

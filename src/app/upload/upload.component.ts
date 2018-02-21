@@ -10,6 +10,8 @@ export class UploadComponent implements OnInit {
   recipe: Upload;
   submitted: boolean;
 
+  dTags = ['cheese', 'pizza', 'pepperoni', 'olives', 'anchovies'];
+
   constructor() { }
 
   ngOnInit() {
