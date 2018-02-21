@@ -1,7 +1,8 @@
 export class Upload {
   constructor(
+    public user: string,
     public title: string,
-    public Photos: Array<any>,
-    public Tags: any,
+    public Photos: any,
+    public Tags?: any,
   ) { }
 }

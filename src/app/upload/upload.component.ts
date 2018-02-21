@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../recipe';
+import { Upload } from '../upload-recipe';
 
 @Component({
   selector: 'app-upload',
@@ -7,11 +7,17 @@ import { Recipe } from '../recipe';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  recipe: Recipe;
+  recipe: Upload;
+  submitted: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.submitted = false;
+  }
+
+  onSubmit() {
+    this.submitted = true;
   }
 
 }
