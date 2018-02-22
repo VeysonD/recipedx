@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Upload your recipe</h1>
-  <form #uploadForm="ngForm">
+  <form #uploadForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="title">Title</label>
       <input
@@ -44,6 +44,9 @@
         <option *ngFor="let tag of dTags" [value]="tag">{{tag}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!uploadForm.form.valid">Submit</button>
   </form>
 </div>
