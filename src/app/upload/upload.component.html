@@ -24,7 +24,13 @@
     </div>
     <div class="form-group">
       <label for="Tags">Tags</label>
-      <input type="text" class="form-control" id="tags">
+      <input
+        type="text"
+        class="form-control"
+        id="tags"
+        [(ngModel)]="model.Tags"
+        name="tags">
+        {{model.Tags}}
     </div>
     <div class="form-group">
       <label for="dtag">Preselected Tags</label>
