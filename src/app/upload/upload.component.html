@@ -1,9 +1,16 @@
 <div class="container">
   <h1>Upload your recipe</h1>
-  <form>
+  <form #uploadForm="ngForm">
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" class="form-control" id="title" required>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="model.title"
+        name="title"
+        required>
+        {{model.title}}
     </div>
     <div class="form-group">
       <label for="Photos">Photos<h5>Choose up to 4 images to upload (jpeg, png, and bmp format)</h5></label>
