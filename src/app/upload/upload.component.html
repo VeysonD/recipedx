@@ -6,8 +6,14 @@
       <input type="text" class="form-control" id="title" required>
     </div>
     <div class="form-group">
-      <label for="Photos">Photos</label>
-      <input type="image" class="form-control" id="photos" required>
+      <label for="Photos">Photos<h5>Choose up to 4 images to upload (jpeg, png, and bmp format)</h5></label>
+      <input
+        type="file"
+        class="form-control"
+        accept=".jpeg, .png, .bmp"
+        id="photos"
+        multiple
+        required>
     </div>
     <div class="form-group">
       <label for="Tags">Tags</label>
