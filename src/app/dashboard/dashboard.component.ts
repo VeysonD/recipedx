@@ -33,9 +33,4 @@ export class DashboardComponent implements OnInit {
     this.upload = !this.upload;
   }
 
-  public uploadRecipe(): void {
-    console.log('Recipe upload has been clicked');
-    this.upload = false;
-  }
-
 }
