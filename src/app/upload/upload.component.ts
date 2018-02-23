@@ -24,4 +24,6 @@ export class UploadComponent implements OnInit {
     this.submitted = true;
   }
 
+  //TODO: Handle if there are no photos uploaded into the form
+
 }
