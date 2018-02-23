@@ -7,9 +7,11 @@ import { Upload } from '../upload-recipe';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
+  fileToUpload: FileList = null;
   recipe: Upload;
   submitted: boolean;
 
+  //TODO: Handle if there are no photos uploaded into the form
   //TODO: delete dTags and model
   dTags = ['cheese', 'pizza', 'pepperoni', 'olives', 'anchovies'];
   model = new Upload('Bob', 'Curry', ['picture1', 'picture2'], ['spice', 'hot', 'rice']);
@@ -20,10 +22,14 @@ export class UploadComponent implements OnInit {
     this.submitted = false;
   }
 
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files;
+  }
+
   onSubmit() {
     this.submitted = true;
   }
 
-  //TODO: Handle if there are no photos uploaded into the form
+
 
 }

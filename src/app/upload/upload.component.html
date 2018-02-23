@@ -25,6 +25,7 @@
         class="form-control"
         accept=".jpeg, .png, .bmp"
         id="photos"
+        (change)="handleFileInput($event.target.files)"
         multiple
         required>
     </div>
