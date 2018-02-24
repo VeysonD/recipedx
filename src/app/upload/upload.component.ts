@@ -10,8 +10,7 @@ import { RecipeService } from'../services/api/recipe.service';
 })
 export class UploadComponent implements OnInit {
   //TODO: Clean up variables that are not used
-  filesToUpload: FileList;
-  recipe: Upload;
+  recipe = new Upload('', '', [], []);
   submitted: boolean;
 
 
@@ -26,13 +25,18 @@ export class UploadComponent implements OnInit {
   }
 
   handleFileInput(files: FileList): void {
-    this.filesToUpload = files;
+    this.recipe.photos = files;
+  }
+
+  handleTagInput(tag: string): void {
+
   }
 
   onSubmit() {
     //TODO: Handle if there are no photos uploaded into the form
+    //TODO: Add username to the recipe class
     this.submitted = true;
-    this.recipeService.postRecipe(this.filesToUpload)
+    this.recipeService.postRecipe(this.recipe)
       .subscribe(res => {
         console.log('Uploaded recipe: ', res)
       }, error => {

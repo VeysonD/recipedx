@@ -5,6 +5,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
 import { Recipe } from './../../recipe';
+import { Upload } from './../../upload-recipe';
 
 
 @Injectable()
@@ -31,7 +32,7 @@ export class RecipeService {
       );
   }
 
-  postRecipe(files: FileList): Observable<any> {
+  postRecipe(recipe: Upload): Observable<any> {
     //TODO:  Append username and tags to formdata
 
     const token = localStorage.getItem('token');
@@ -42,8 +43,8 @@ export class RecipeService {
     };
     const formData: FormData = new FormData();
 
-    for (let i = 0; i < files.length; i++) {
-      formData.append('photos', files[i])
+    for (let i = 0; i < recipe.photos.length; i++) {
+      formData.append('photos', recipe.photos[i])
     }
 
     console.log('What is the formData being sent off:', formData.get('photos'));
