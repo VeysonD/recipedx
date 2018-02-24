@@ -4,7 +4,7 @@
     <li *ngIf="upload">Return home</li>
     <li *ngIf="!upload">Upload a new recipe</li>
   </ul>
-  <ul class="list-recipe" (click)="uploadRecipe()">
+  <ul class="list-recipe">
       <app-inventory
         [recipes]="recipes"
         (onRecipe)="recipeClick($event)">

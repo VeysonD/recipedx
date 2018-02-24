@@ -32,13 +32,13 @@ export class RecipeService {
   }
 
   postRecipe(files: FileList): Observable<any> {
-    //TODO:  fit the formData into an object along with the username, and tags
+    //TODO:  Append username and tags to formdata
 
     const token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`,
-        'Content-type': 'application/json'
+        'Content-type': 'multipart/form-data'
       })
     };
     const formData: FormData = new FormData();

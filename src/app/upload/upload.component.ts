@@ -33,7 +33,7 @@ export class UploadComponent implements OnInit {
     //TODO: Handle if there are no photos uploaded into the form
     this.submitted = true;
     this.recipeService.postRecipe(this.filesToUpload)
-      .subscribe(res => console.log('What is the response:', res));
+      .subscribe(res => console.log('Uploaded recipe: ', res));
   }
 
 
