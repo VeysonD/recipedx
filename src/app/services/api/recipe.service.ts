@@ -37,17 +37,16 @@ export class RecipeService {
     const token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`,
-        'Content-type': 'multipart/form-data'
+        'Authorization': `Bearer ${token}`
       })
     };
     const formData: FormData = new FormData();
 
     for (let i = 0; i < files.length; i++) {
-      formData.append('photoKey', files[i])
+      formData.append('photos', files[i])
     }
 
-    console.log('What is the formData being sent off:', formData.get('photoKey'));
+    console.log('What is the formData being sent off:', formData.get('photos'));
 
     return this.http.post<FormData>(this.recipeApi +'/upload', formData, httpOptions)
       .pipe(
