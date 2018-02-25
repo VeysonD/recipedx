@@ -10,22 +10,23 @@ import { RecipeService } from'../services/api/recipe.service';
 })
 export class UploadComponent implements OnInit {
   //TODO: Clean up variables that are not used
-  recipe = new Upload('', '', [], []);
+  recipe: Upload;
   submitted: boolean;
 
-
-  //TODO: Delete dTags and model
+  //TODO: Delete dTags
   dTags = ['cheese', 'pizza', 'pepperoni', 'olives', 'anchovies'];
-  model = new Upload('Bob', 'Curry', ['picture1', 'picture2'], ['spice', 'hot', 'rice']);
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    const user = JSON.parse(localStorage.getItem('profile')).email;
+    this.recipe = new Upload(user, '', '', false, []);
+
     this.submitted = false;
   }
 
   handleFileInput(files: FileList): void {
-    this.recipe.photos = files;
+    this.recipe.Photos = files;
   }
 
   handleTagInput(tag: string): void {
@@ -43,7 +44,4 @@ export class UploadComponent implements OnInit {
         console.error('Upload recipe error: ', error);
       });
   }
-
-
-
 }

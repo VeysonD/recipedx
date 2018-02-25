@@ -43,8 +43,8 @@ export class RecipeService {
     };
     const formData: FormData = new FormData();
 
-    for (let i = 0; i < recipe.photos.length; i++) {
-      formData.append('photos', recipe.photos[i])
+    for (let i = 0; i < recipe.Photos.length; i++) {
+      formData.append('photos', recipe.Photos[i])
     }
 
     console.log('What is the formData being sent off:', formData.get('photos'));
