@@ -35,7 +35,7 @@ export class UploadComponent implements OnInit {
 
   onSubmit() {
     //TODO: Handle if there are no photos uploaded into the form
-    //TODO: Add username to the recipe class
+
     this.submitted = true;
     this.recipeService.postRecipe(this.recipe)
       .subscribe(res => {

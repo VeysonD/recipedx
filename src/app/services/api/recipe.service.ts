@@ -33,21 +33,28 @@ export class RecipeService {
   }
 
   postRecipe(recipe: Upload): Observable<any> {
-    //TODO:  Append username and tags to formdata
-
     const token = localStorage.getItem('token');
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     };
+    const isStarred = recipe.isStarred ? 'y': 'n';
     const formData: FormData = new FormData();
+
+    formData.append('user', recipe.user);
+    formData.append('title', recipe.title);
+    formData.append('isStarred', isStarred);
 
     for (let i = 0; i < recipe.Photos.length; i++) {
       formData.append('photos', recipe.Photos[i])
     }
 
-    console.log('What is the formData being sent off:', formData.get('photos'));
+    for (let i = 0; i < recipe.Tags.length; i++) {
+      formData.append('tags', recipe.Tags[i]);
+    }
+
+    console.log('What is the formData photos being sent off:', formData.get('photos'));
 
     return this.http.post<FormData>(this.recipeApi +'/upload', formData, httpOptions)
       .pipe(
