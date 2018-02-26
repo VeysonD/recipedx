@@ -35,9 +35,23 @@
         type="text"
         class="form-control"
         id="tags"
-        [(ngModel)]="recipe.Tags"
-        name="tags">
-        {{recipe.Tags}}
+        [(ngModel)]="tagInput"
+        name="tags"
+        #tag
+        (keyup.enter)="handleTagInput()">
+        <div class="tags" *ngIf="recipe.Tags.length !== 0">
+          <div class="tag-button" *ngFor="let tag of recipe.Tags; index as i">
+            <button class="btn btn-secondary" type="button">
+              {{tag}}
+            </button>
+            <button type="button" class="close" aria-label="Close" (click)="handleTagDelete(i)">
+              &times;
+            </button>
+        </div>
+        </div>
+        <button class="btn btn-primary" type="button" (click)="handleTagInput()">
+          Click to add a tag!
+        </button>
     </div>
     <div class="form-group">
       <label for="dtag">Preselected Tags</label>
