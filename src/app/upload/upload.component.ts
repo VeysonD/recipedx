@@ -11,11 +11,7 @@ import { RecipeService } from'../services/api/recipe.service';
 export class UploadComponent implements OnInit {
   //TODO: Clean up variables that are not used
   recipe: Upload;
-  submitted: boolean;
   tagInput: string;
-
-  //TODO: Delete dTags
-  dTags = ['cheese', 'pizza', 'pepperoni', 'olives', 'anchovies'];
 
   constructor(private recipeService: RecipeService) { }
 
@@ -23,7 +19,6 @@ export class UploadComponent implements OnInit {
     const user = JSON.parse(localStorage.getItem('profile')).email;
     this.recipe = new Upload(user, '', null, false, []);
     this.tagInput = '';
-    this.submitted = false;
   }
 
   handleFileInput(files: FileList): void {
@@ -31,7 +26,6 @@ export class UploadComponent implements OnInit {
   }
 
   handleTagDelete(index: number): void {
-    console.log('what is the index of the tag: ', index);
     this.recipe.Tags.splice(index, 1);
   }
 
@@ -47,13 +41,13 @@ export class UploadComponent implements OnInit {
   onSubmit() {
     //TODO: Handle if there are no photos uploaded into the form
 
-    this.submitted = true;
     this.recipeService.postRecipe(this.recipe)
       .subscribe(res => {
         console.log('Uploaded recipe: ', res)
       }, error => {
         console.error('Upload recipe error: ', error);
       });
+
     // Reset the upload recipe
     this.recipe.title = '';
     this.recipe.Photos = null;
