@@ -70,8 +70,8 @@ export class UploadComponent implements OnInit {
   }
 
   showFailModal() {
-    const failModal = $('#my-modal-fail');
-    console.log('What is the modal: ', failModal);
-    failModal.modal('show');
+    // const failModal = $('#my-modal-fail');
+    // console.log('What is the modal: ', failModal);
+    // failModal.modal('show');
   }
 }
