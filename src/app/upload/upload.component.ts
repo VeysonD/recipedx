@@ -12,6 +12,7 @@ export class UploadComponent implements OnInit {
   //TODO: Clean up variables that are not used
   recipe: Upload;
   tagInput: string;
+  missingField: Array<string>;
 
   constructor(private recipeService: RecipeService) { }
 
@@ -30,7 +31,6 @@ export class UploadComponent implements OnInit {
   }
 
   handleTagInput(): void {
-    //TODO: Handle if there are no Tags (need at least one and up to 12)
     console.log('handle tag input');
     if (this.tagInput.length !== 0) {
       this.recipe.Tags.push(this.tagInput);
@@ -38,8 +38,18 @@ export class UploadComponent implements OnInit {
     }
   }
 
+  onReset() {
+    // Reset the upload recipe
+    this.recipe.title = '';
+    this.recipe.Photos = null;
+    this.recipe.isStarred = false;
+    this.recipe.Tags = [];
+  }
+
   onSubmit() {
     //TODO: Handle if there are no photos uploaded into the form
+
+    // if (this.recipe.Photos !== null)
 
     this.recipeService.postRecipe(this.recipe)
       .subscribe(res => {
@@ -48,10 +58,11 @@ export class UploadComponent implements OnInit {
         console.error('Upload recipe error: ', error);
       });
 
-    // Reset the upload recipe
-    this.recipe.title = '';
-    this.recipe.Photos = null;
-    this.recipe.isStarred = false;
-    this.recipe.Tags = [];
+      this.onReset();
+  }
+
+  showFailModal() {
+    const modal = document.getElementById('my-modal-fail');
+    console.log('What is the modal: ', modal);
   }
 }
