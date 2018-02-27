@@ -11,15 +11,14 @@ import { RecipeService } from'../services/api/recipe.service';
 export class UploadComponent implements OnInit {
   //TODO: Clean up variables that are not used
   recipe: Upload;
-  tagInput: string;
-  missingField: Array<string>;
+  tagInput: string = '';
+  missingField: Array<string> = [];
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
     const user = JSON.parse(localStorage.getItem('profile')).email;
     this.recipe = new Upload(user, '', null, false, []);
-    this.tagInput = '';
   }
 
   handleFileInput(files: FileList): void {
@@ -49,20 +48,29 @@ export class UploadComponent implements OnInit {
   onSubmit() {
     //TODO: Handle if there are no photos uploaded into the form
 
-    // if (this.recipe.Photos !== null)
-
-    this.recipeService.postRecipe(this.recipe)
-      .subscribe(res => {
-        console.log('Uploaded recipe: ', res)
-      }, error => {
-        console.error('Upload recipe error: ', error);
-      });
+    if (this.recipe.Photos !== null && this.recipe.Tags.length !== 0) {
+      this.recipeService.postRecipe(this.recipe)
+        .subscribe(res => {
+          console.log('Uploaded recipe: ', res)
+        }, error => {
+          console.error('Upload recipe error: ', error);
+        });
 
       this.onReset();
+    } else if (this.recipe.Photos === null) {
+      this.missingField.push('photos');
+      this.showFailModal();
+    } else if (this.recipe.Tags.length === 0) {
+      this.missingField.push('tags');
+      this.showFailModal();
+    } else {
+      this.missingField.push('photos', 'tags');
+      this.showFailModal();
+    }
   }
 
   showFailModal() {
-    const modal = document.getElementById('my-modal-fail');
+    const modal = $('#my-modal-fail');
     console.log('What is the modal: ', modal);
   }
 }
