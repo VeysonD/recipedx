@@ -30,7 +30,7 @@
         required>
     </div>
     <div class="form-group">
-      <label for="Tags">Tags</label>
+      <label for="Tags">Tags<h5>Choose up to 12 tags to label your recipe with</h5></label>
       <input
         type="text"
         class="form-control"
@@ -50,7 +50,7 @@
         </div>
         </div>
         <button class="btn btn-primary" type="button" (click)="handleTagInput()">
-          Click to add a tag!
+          Add tag
         </button>
     </div>
     <button
@@ -66,4 +66,39 @@
     </button>
 
   </form>
+
+  <div class="modal fade" id="my-modal-fail" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header modal-header-danger">
+        <h4 class="modal-title">Warning!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Recipe photos and tags are required</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <modal success> -->
+<div class="modal fade" id="my-modal-success" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header modal-header-cool">
+        <h4 class="modal-title">Successfully uploaded!</h4>
+      </div>
+      <div class="modal-body">
+        <p>Time to cook!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
