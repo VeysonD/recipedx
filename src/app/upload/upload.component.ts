@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Upload } from '../upload-recipe';
 
 import { RecipeService } from'../services/api/recipe.service';
@@ -14,7 +15,10 @@ export class UploadComponent implements OnInit {
   tagInput: string = '';
   missingField: Array<string> = [];
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(
+    private recipeService: RecipeService,
+    private modalService: NgbModal
+  ) { }
 
   ngOnInit() {
     const user = JSON.parse(localStorage.getItem('profile')).email;
@@ -70,6 +74,8 @@ export class UploadComponent implements OnInit {
   }
 
   showFailModal() {
+    //TODO: Show fail Modal
+    
     // const failModal = $('#my-modal-fail');
     // console.log('What is the modal: ', failModal);
     // failModal.modal('show');
