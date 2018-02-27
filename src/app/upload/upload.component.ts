@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Upload } from '../upload-recipe';
-declare var jquery: any;
-declare var $: any;
 
 import { RecipeService } from'../services/api/recipe.service';
 
@@ -74,5 +72,6 @@ export class UploadComponent implements OnInit {
   showFailModal() {
     const failModal = $('#my-modal-fail');
     console.log('What is the modal: ', failModal);
+    failModal.modal('show');
   }
 }
