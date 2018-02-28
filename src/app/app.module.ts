@@ -17,6 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewComponent } from './view/view.component';
 import { UploadComponent } from './upload/upload.component';
+import { UploadModalComponent } from './upload-modal/upload-modal.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UploadComponent } from './upload/upload.component';
     DashboardComponent,
     NavbarComponent,
     ViewComponent,
-    UploadComponent
+    UploadComponent,
+    UploadModalComponent
   ],
   imports: [
     BrowserModule,
