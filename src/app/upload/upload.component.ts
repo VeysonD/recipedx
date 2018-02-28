@@ -11,6 +11,7 @@ import { RecipeService } from'../services/api/recipe.service';
 })
 export class UploadComponent implements OnInit {
   //TODO: Clean up variables that are not used
+  closeResult: string;
   recipe: Upload;
   tagInput: string = '';
   missingField: Array<string> = [];
@@ -51,6 +52,7 @@ export class UploadComponent implements OnInit {
 
   onSubmit() {
     //TODO: Handle if there are no photos uploaded into the form
+    //TODO: Handle the failModals and success modals as if opening a new component
 
     if (this.recipe.Photos !== null && this.recipe.Tags.length !== 0) {
       this.recipeService.postRecipe(this.recipe)
@@ -63,21 +65,33 @@ export class UploadComponent implements OnInit {
       this.onReset();
     } else if (this.recipe.Photos === null) {
       this.missingField.push('photos');
-      this.showFailModal();
+      // this.showFailModal(fail);
     } else if (this.recipe.Tags.length === 0) {
       this.missingField.push('tags');
-      this.showFailModal();
+      // this.showFailModal(fail);
     } else {
       this.missingField.push('photos', 'tags');
-      this.showFailModal();
+      // this.showFailModal(fail);
     }
   }
 
-  showFailModal() {
-    //TODO: Show fail Modal
-    
-    // const failModal = $('#my-modal-fail');
-    // console.log('What is the modal: ', failModal);
-    // failModal.modal('show');
+  showFailModal(fail) {
+    //TODO: Refactor fail argument to component
+
+    this.modalService.open(fail).result.then(result => {
+      this.closeResult = `Closed with: ${result}`;
+    }, reason => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    })
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }
