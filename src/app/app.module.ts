@@ -32,6 +32,9 @@ import { UploadModalComponent } from './upload-modal/upload-modal.component';
     UploadComponent,
     UploadModalComponent
   ],
+  entryComponents: [
+    UploadModalComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

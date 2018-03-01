@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Upload } from '../upload-recipe';
+import { UploadModalComponent } from '../upload-modal/upload-modal.component';
 
 import { RecipeService } from'../services/api/recipe.service';
 
@@ -66,9 +67,11 @@ export class UploadComponent implements OnInit {
     } else if (this.recipe.Photos === null) {
       this.missingField.push('photos');
       // this.showFailModal(fail);
+      this.modalService.open(UploadModalComponent);
     } else if (this.recipe.Tags.length === 0) {
       this.missingField.push('tags');
       // this.showFailModal(fail);
+      this.modalService.open(UploadModalComponent);
     } else {
       this.missingField.push('photos', 'tags');
       // this.showFailModal(fail);
