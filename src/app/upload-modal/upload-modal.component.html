@@ -1,13 +1,15 @@
-
-<div class="modal-header">
-  <h4 class="modal-title">Create New </h4>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<div class="modal-body">
-  <p>One fine body&hellip;</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-success" (click)="activeModal.close('Close click')">Create</button>
+<div class="modal-content">
+  <div class="modal-header modal-header-danger">
+    <h4 class="modal-title">Warning!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--TODO: Change this depending on what they are missing-->
+    <p>Recipe tag and photo are required</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="activeModal.close('Close click')">Close</button>
+  </div>
 </div>
