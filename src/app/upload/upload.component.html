@@ -38,6 +38,11 @@
         name="tags"
         #tag
         (keyup.enter)="handleTagInput()">
+        <div
+          [hidden]="checkTagLength()"
+          class="alert alert-danger">
+            Max number of tags reached
+        </div>
         <div class="tags" *ngIf="recipe.Tags.length !== 0">
           <div class="tag-button" *ngFor="let tag of recipe.Tags; index as i">
             <button class="btn btn-secondary" type="button">
@@ -62,7 +67,7 @@
     <button
       type="reset"
       class="btn btn-danger"
-      (click)="onReset();">
+      (click)="onReset(uploadForm);">
       Reset
     </button>
   </form>

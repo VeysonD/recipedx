@@ -28,6 +28,9 @@ export class UploadComponent implements OnInit {
     this.recipe = new Upload(user, '', null, false, []);
   }
 
+  checkTagLength(): boolean {
+    return this.recipe.Tags.length < 12;
+  }
   handleFileInput(files: FileList): void {
     this.recipe.Photos = files;
   }
@@ -38,7 +41,7 @@ export class UploadComponent implements OnInit {
 
   handleTagInput(): void {
     console.log('handle tag input: ', this.tagInput);
-    if (this.tagInput.length !== 0) {
+    if (this.tagInput.length !== 0 && this.recipe.Tags.length < 12) {
       this.recipe.Tags.push(this.tagInput);
       this.tagInput = '';
     }
@@ -66,7 +69,6 @@ export class UploadComponent implements OnInit {
         });
       this.onReset(form);
     } else {
-      this.missingField.push('photos', 'tags');
       this.showFailModal();
     }
   }
