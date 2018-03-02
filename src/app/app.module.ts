@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ViewComponent } from './view/view.component';
 import { UploadComponent } from './upload/upload.component';
 import { UploadModalComponent } from './upload-modal/upload-modal.component';
+import { UploadModalSuccessComponent } from './upload-modal-success/upload-modal-success.component';
 
 
 @NgModule({
@@ -30,10 +31,12 @@ import { UploadModalComponent } from './upload-modal/upload-modal.component';
     NavbarComponent,
     ViewComponent,
     UploadComponent,
-    UploadModalComponent
+    UploadModalComponent,
+    UploadModalSuccessComponent
   ],
   entryComponents: [
-    UploadModalComponent
+    UploadModalComponent,
+    UploadModalSuccessComponent
   ],
   imports: [
     BrowserModule,
