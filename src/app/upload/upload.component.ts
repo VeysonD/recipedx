@@ -37,22 +37,23 @@ export class UploadComponent implements OnInit {
   }
 
   handleTagInput(): void {
-    console.log('handle tag input');
+    console.log('handle tag input: ', this.tagInput);
     if (this.tagInput.length !== 0) {
       this.recipe.Tags.push(this.tagInput);
       this.tagInput = '';
     }
   }
 
-  onReset() {
+  onReset(form: any): void {
     // Reset the upload recipe
     this.recipe.title = '';
     this.recipe.Photos = null;
     this.recipe.isStarred = false;
     this.recipe.Tags = [];
+    form.reset();
   }
 
-  onSubmit() {
+  onSubmit(form: any): void {
     //TODO: Handle if recipe is not uploaded successfully
 
     if (this.recipe.Photos !== null && this.recipe.Tags.length !== 0) {
@@ -63,14 +64,14 @@ export class UploadComponent implements OnInit {
         }, error => {
           console.error('Upload recipe error: ', error);
         });
-      this.onReset();
+      this.onReset(form);
     } else {
       this.missingField.push('photos', 'tags');
       this.showFailModal();
     }
   }
 
-  showFailModal() {
+  showFailModal(): void {
     this.modalService.open(UploadModalComponent).result.then(result => {
       this.closeResult = `Closed with: ${result}`;
       console.log('Fail modal close: ', this.closeResult);
@@ -80,7 +81,7 @@ export class UploadComponent implements OnInit {
     });
   }
 
-  showSuccessModal() {
+  showSuccessModal(): void {
     this.modalService.open(UploadModalSuccessComponent).result.then(result => {
       this.closeResult = `Closed with: ${result}`;
       console.log('Success modal close: ', this.closeResult);

@@ -56,13 +56,13 @@
       type="button"
       class="btn btn-success"
       [disabled]="!uploadForm.form.valid"
-      (click)="onSubmit()">
+      (click)="onSubmit(uploadForm)">
       Submit
     </button>
     <button
       type="reset"
       class="btn btn-danger"
-      (click)="onReset()">
+      (click)="onReset();">
       Reset
     </button>
   </form>
