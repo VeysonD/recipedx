@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Upload } from '../upload-recipe';
 import { UploadModalComponent } from '../upload-modal/upload-modal.component';
+import { UploadModalSuccessComponent } from '../upload-modal-success/upload-modal-success.component';
 
 import { RecipeService } from'../services/api/recipe.service';
 
@@ -52,27 +53,18 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit() {
-    //TODO: Handle the failModals and success modals as if opening a new component
+    //TODO: Handle if recipe is not uploaded successfully
 
     if (this.recipe.Photos !== null && this.recipe.Tags.length !== 0) {
       this.recipeService.postRecipe(this.recipe)
         .subscribe(res => {
-          console.log('Uploaded recipe: ', res)
+          console.log('Uploaded recipe: ', res);
+          this.showSuccessModal();
         }, error => {
           console.error('Upload recipe error: ', error);
         });
-
       this.onReset();
     } else {
-    // } else if (this.recipe.Photos === null) {
-    //   this.missingField.push('photos');
-    //   this.showFailModal();
-    //   // this.modalService.open(UploadModalComponent);
-    // } else if (this.recipe.Tags.length === 0) {
-    //   this.missingField.push('tags');
-    //   this.showFailModal();
-    //   // this.modalService.open(UploadModalComponent);
-    // } else {
       this.missingField.push('photos', 'tags');
       this.showFailModal();
     }
@@ -85,9 +77,17 @@ export class UploadComponent implements OnInit {
     }, reason => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       console.log('Fail modal close: ', this.closeResult);
+    });
+  }
+
+  showSuccessModal() {
+    this.modalService.open(UploadModalSuccessComponent).result.then(result => {
+      this.closeResult = `Closed with: ${result}`;
+      console.log('Success modal close: ', this.closeResult);
+    }, reason => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log('Success modal close: ', this.closeResult);
     })
-
-
   }
 
   private getDismissReason(reason: any): string {
