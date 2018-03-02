@@ -52,7 +52,6 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit() {
-    //TODO: Handle if there are no photos uploaded into the form
     //TODO: Handle the failModals and success modals as if opening a new component
 
     if (this.recipe.Photos !== null && this.recipe.Tags.length !== 0) {
@@ -64,28 +63,31 @@ export class UploadComponent implements OnInit {
         });
 
       this.onReset();
-    } else if (this.recipe.Photos === null) {
-      this.missingField.push('photos');
-      // this.showFailModal(fail);
-      this.modalService.open(UploadModalComponent);
-    } else if (this.recipe.Tags.length === 0) {
-      this.missingField.push('tags');
-      // this.showFailModal(fail);
-      this.modalService.open(UploadModalComponent);
     } else {
+    // } else if (this.recipe.Photos === null) {
+    //   this.missingField.push('photos');
+    //   this.showFailModal();
+    //   // this.modalService.open(UploadModalComponent);
+    // } else if (this.recipe.Tags.length === 0) {
+    //   this.missingField.push('tags');
+    //   this.showFailModal();
+    //   // this.modalService.open(UploadModalComponent);
+    // } else {
       this.missingField.push('photos', 'tags');
-      // this.showFailModal(fail);
+      this.showFailModal();
     }
   }
 
-  showFailModal(fail) {
-    //TODO: Refactor fail argument to component
-
-    this.modalService.open(fail).result.then(result => {
+  showFailModal() {
+    this.modalService.open(UploadModalComponent).result.then(result => {
       this.closeResult = `Closed with: ${result}`;
+      console.log('Fail modal close: ', this.closeResult);
     }, reason => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log('Fail modal close: ', this.closeResult);
     })
+
+
   }
 
   private getDismissReason(reason: any): string {
