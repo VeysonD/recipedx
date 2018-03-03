@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
@@ -28,7 +29,8 @@ export class RecipeService {
 
     return this.http.get<Recipe[]>(this.recipeApi + '/recipes', httpOptions)
       .pipe(
-        catchError(this.handleError('getRecipes', []))
+        // catchError(this.handleError('getRecipes', []))
+        catchError((error, c) => this.handleError(error))
       );
   }
 
@@ -58,7 +60,8 @@ export class RecipeService {
 
     return this.http.post<FormData>(this.recipeApi +'/upload', formData, httpOptions)
       .pipe(
-        catchError(this.handleError('postRecipe', []))
+        // catchError(this.handleError('postRecipe', []))
+        catchError((error, c) => this.handleError(error))
       );
   }
 
@@ -73,11 +76,26 @@ export class RecipeService {
     }
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
+  // private handleError<T> (operation = 'operation', result?: T) {
+  //   return (error: any): Observable<T> => {
+  //     console.error(error);
+  //
+  //     return of(result as T);
+  //   }
+  // }
 
-      return of(result as T);
+  private handleError (error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occured
+      console.error('An error occured: ', error.error.message);
+    } else {
+      // The backend returned an unsccessful response code
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
     }
+    // return an ErrorObservable
+    return new ErrorObservable(
+    'There was an error; please try again later.');
   }
 }
