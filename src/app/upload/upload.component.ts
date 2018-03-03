@@ -16,7 +16,7 @@ export class UploadComponent implements OnInit {
   closeResult: string;
   recipe: Upload;
   tagInput: string = '';
-  missingField: Array<string> = [];
+  modalError: string = '';
 
   constructor(
     private recipeService: RecipeService,
@@ -66,21 +66,29 @@ export class UploadComponent implements OnInit {
           this.showSuccessModal();
         }, error => {
           console.error('Upload recipe error: ', error);
+          this.modalError = 'api';
+          this.showFailModal();
         });
       this.onReset(form);
     } else {
+      this.modalError = 'miss';
       this.showFailModal();
     }
   }
 
   showFailModal(): void {
-    this.modalService.open(UploadModalFailComponent).result.then(result => {
+    const modalRef = this.modalService.open(UploadModalFailComponent);
+    modalRef.componentInstance.errorType = this.modalError;
+
+    modalRef.result.then(result => {
       this.closeResult = `Closed with: ${result}`;
       console.log('Fail modal close: ', this.closeResult);
     }, reason => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       console.log('Fail modal close: ', this.closeResult);
     });
+
+    this.modalError = '';
   }
 
   showSuccessModal(): void {

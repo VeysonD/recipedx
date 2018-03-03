@@ -12,7 +12,8 @@
   </div>
   <div class="modal-body">
     <!--TODO: Change this depending on what they are missing-->
-    <p>Recipe tag and photo are required</p>
+    <p *ngIf="errorType === 'miss'">Recipe tag and photo are required</p>
+    <p *ngIf="errorType === 'api'">There was an error on our end.  Please try again!</p>
   </div>
   <div class="modal-footer">
     <button

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -7,7 +7,8 @@ import { NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./upload-modal-fail.component.css']
 })
 export class UploadModalFailComponent implements OnInit {
-
+  @Input() errorType;
+  
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
