@@ -17,7 +17,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewComponent } from './view/view.component';
 import { UploadComponent } from './upload/upload.component';
-import { UploadModalComponent } from './upload-modal/upload-modal.component';
+import { UploadModalFailComponent } from './upload-modal-fail/upload-modal-fail.component';
 import { UploadModalSuccessComponent } from './upload-modal-success/upload-modal-success.component';
 
 
@@ -31,11 +31,11 @@ import { UploadModalSuccessComponent } from './upload-modal-success/upload-modal
     NavbarComponent,
     ViewComponent,
     UploadComponent,
-    UploadModalComponent,
+    UploadModalFailComponent,
     UploadModalSuccessComponent
   ],
   entryComponents: [
-    UploadModalComponent,
+    UploadModalFailComponent,
     UploadModalSuccessComponent
   ],
   imports: [

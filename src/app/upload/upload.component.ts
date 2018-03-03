@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Upload } from '../upload-recipe';
-import { UploadModalComponent } from '../upload-modal/upload-modal.component';
+import { UploadModalFailComponent } from '../upload-modal-fail/upload-modal-fail.component';
 import { UploadModalSuccessComponent } from '../upload-modal-success/upload-modal-success.component';
 
 import { RecipeService } from'../services/api/recipe.service';
@@ -57,7 +57,7 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit(form: any): void {
-    //TODO: Handle if recipe is not uploaded successfully
+    //TODO: Handle if recipe is not uploaded successfully to API
 
     if (this.recipe.Photos !== null && this.recipe.Tags.length !== 0) {
       this.recipeService.postRecipe(this.recipe)
@@ -74,7 +74,7 @@ export class UploadComponent implements OnInit {
   }
 
   showFailModal(): void {
-    this.modalService.open(UploadModalComponent).result.then(result => {
+    this.modalService.open(UploadModalFailComponent).result.then(result => {
       this.closeResult = `Closed with: ${result}`;
       console.log('Fail modal close: ', this.closeResult);
     }, reason => {
