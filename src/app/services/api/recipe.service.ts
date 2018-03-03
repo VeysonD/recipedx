@@ -29,7 +29,6 @@ export class RecipeService {
 
     return this.http.get<Recipe[]>(this.recipeApi + '/recipes', httpOptions)
       .pipe(
-        // catchError(this.handleError('getRecipes', []))
         catchError((error, c) => this.handleError(error))
       );
   }
@@ -60,7 +59,6 @@ export class RecipeService {
 
     return this.http.post<FormData>(this.recipeApi +'/upload', formData, httpOptions)
       .pipe(
-        // catchError(this.handleError('postRecipe', []))
         catchError((error, c) => this.handleError(error))
       );
   }
@@ -75,14 +73,6 @@ export class RecipeService {
       })
     }
   }
-
-  // private handleError<T> (operation = 'operation', result?: T) {
-  //   return (error: any): Observable<T> => {
-  //     console.error(error);
-  //
-  //     return of(result as T);
-  //   }
-  // }
 
   private handleError (error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
