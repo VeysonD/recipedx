@@ -14,32 +14,19 @@ export class RecipeService {
   //TODO: obscure the API endpoint
 
   private recipeApi = 'http://127.0.0.1:4201/api';
-  private token = null;
   private httpOptions = null;
 
   constructor(private http: HttpClient) { }
 
   getRecipes(): Observable<Recipe[]> {
-    const token = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
-      })
-    };
-
-    return this.http.get<Recipe[]>(this.recipeApi + '/recipes', httpOptions)
+    this.establishHeaders();
+    return this.http.get<Recipe[]>(this.recipeApi + '/recipes', this.httpOptions)
       .pipe(
         catchError((error, c) => this.handleError(error))
       );
   }
 
   postRecipe(recipe: Upload): Observable<any> {
-    const token = localStorage.getItem('token');
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${token}`
-      })
-    };
     const isStarred = recipe.isStarred ? 'y': 'n';
     const formData: FormData = new FormData();
 
@@ -57,19 +44,17 @@ export class RecipeService {
 
     console.log('What is the formData photos being sent off:', formData.get('photos'));
 
-    return this.http.post<FormData>(this.recipeApi +'/upload', formData, httpOptions)
+    return this.http.post<FormData>(this.recipeApi +'/upload', formData, this.httpOptions)
       .pipe(
         catchError((error, c) => this.handleError(error))
       );
   }
 
-  //TODO: Initialize this service's headers after the auth service finishes successfully
-
   private establishHeaders(): void {
-    this.token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     this.httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': `Bearer ${this.token}`
+        'Authorization': `Bearer ${token}`
       })
     }
   }

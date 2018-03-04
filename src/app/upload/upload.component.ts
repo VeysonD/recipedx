@@ -57,8 +57,6 @@ export class UploadComponent implements OnInit {
   }
 
   onSubmit(form: any): void {
-    //TODO: Handle if recipe is not uploaded successfully to API
-
     if (this.recipe.Photos !== null && this.recipe.Tags.length !== 0) {
       this.recipeService.postRecipe(this.recipe)
         .subscribe(res => {
