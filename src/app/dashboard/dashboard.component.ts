@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
 
   public recipeClick(recipe): void {
     this.selectedRecipe = recipe;
+    this.upload = false;
   }
 
   public uploadClick(): void {
