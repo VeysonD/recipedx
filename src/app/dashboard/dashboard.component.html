@@ -1,8 +1,12 @@
 <app-navbar></app-navbar>
 <div class="list">
   <ul class="upload-recipe" (click)="uploadClick()">
-    <li *ngIf="upload">Return home</li>
-    <li *ngIf="!upload">Upload a new recipe</li>
+    <li *ngIf="upload">
+      <button class="btn btn-primary">Return home</button>
+    </li>
+    <li *ngIf="!upload">
+      <button class="btn btn-primary">Upload a new recipe</button>
+    </li>
   </ul>
   <ul class="list-recipe">
       <app-inventory
