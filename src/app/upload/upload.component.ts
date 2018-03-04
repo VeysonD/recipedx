@@ -12,7 +12,6 @@ import { RecipeService } from'../services/api/recipe.service';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent implements OnInit {
-  //TODO: Clean up variables that are not used
   closeResult: string;
   recipe: Upload;
   tagInput: string = '';
