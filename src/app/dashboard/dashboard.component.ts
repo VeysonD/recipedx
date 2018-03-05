@@ -30,7 +30,6 @@ export class DashboardComponent implements OnInit {
   }
 
   public uploadClick(): void {
-    console.log('Upload has been clicked');
     this.upload = !this.upload;
   }
 
