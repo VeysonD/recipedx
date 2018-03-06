@@ -33,4 +33,8 @@ export class DashboardComponent implements OnInit {
     this.upload = !this.upload;
   }
 
+  public filterRecipe(search: string): void {
+    
+  }
+
 }
