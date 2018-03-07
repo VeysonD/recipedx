@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -48,6 +48,21 @@ export class RecipeService {
       .pipe(
         catchError((error, c) => this.handleError(error))
       );
+  }
+
+  searchRecipes(term: string): Observable<Recipe[]> {
+    this.establishHeaders();
+    term = term.trim();
+    const searchOptions = this.httpOptions;
+    
+    if (term) {
+      searchOptions.params = new HttpParams().set('name', term);
+    }
+
+    return this.http.get<Recipe[]>(this.recipeApi + '/search', searchOptions)
+      .pipe(
+        catchError((error, c) => this.handleError(error))
+      )
   }
 
   private establishHeaders(): void {
