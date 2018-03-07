@@ -53,8 +53,10 @@ export class RecipeService {
   searchRecipes(term: string): Observable<Recipe[]> {
     this.establishHeaders();
     term = term.trim();
+
+    //TODO: Update headers properly using set (possibly)
     const searchOptions = this.httpOptions;
-    
+
     if (term) {
       searchOptions.params = new HttpParams().set('name', term);
     }
