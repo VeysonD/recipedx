@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { of } from 'rxjs/observable/of';
@@ -17,7 +17,6 @@ import { Recipe } from './../recipe';
 export class NavbarComponent implements OnInit {
   recipes$: Observable<Recipe[]>;
   private searchTerms = new Subject<string>();
-  @Output() onSearch = new EventEmitter<String>();
 
   constructor(
     public authService: AuthService,
@@ -35,10 +34,5 @@ export class NavbarComponent implements OnInit {
   handleSearch(term: string): void {
     this.searchTerms.next(term);
   }
-
-  // TODO: update to send to dashboard component maybe pipe it with switch map?
-  // handleSearch(query: string): void {
-  //   this.onSearch.emit(query);
-  // }
 
 }
