@@ -32,11 +32,12 @@ export class NavbarComponent implements OnInit {
     )
   }
 
-  handleSearch(term: string): void {
+  public handleSearch(term: string): void {
     this.searchTerms.next(term);
   }
 
-  changeRecipe(recipe: Recipe): void {
+  public changeRecipe(recipe: any): void {
+    console.log('Clicked: ', recipe.target);
     this.onSearch.emit(recipe);
   }
 

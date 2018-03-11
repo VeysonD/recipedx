@@ -30,7 +30,11 @@
         (keyup)="handleSearch(searchBox.value)"
         list="search">
         <datalist id="search">
-          <option *ngFor="let recipe of recipes$ | async" value="{{recipe.title}}">
+          <option
+            *ngFor="let recipe of recipes$ | async"
+            value="{{recipe.title}}"
+            >
+            {{recipe.title}}
           </option>
         </datalist>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -43,5 +47,6 @@
           Logout
       </button>
     </form>
+    <h1 (click)="changeRecipe($event)">Test1</h1>
   </div>
 </nav>
