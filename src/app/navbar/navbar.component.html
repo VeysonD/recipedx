@@ -29,14 +29,6 @@
         aria-label="search"
         (keyup)="handleSearch(searchBox.value)"
         list="search">
-        <datalist id="search">
-          <option
-            *ngFor="let recipe of recipes$ | async"
-            value="{{recipe.title}}"
-            >
-            {{recipe.title}}
-          </option>
-        </datalist>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       <button
         class="btn btn-primary btn-margin my-2 my-sm-0"
@@ -50,3 +42,8 @@
     <h1 (click)="changeRecipe($event)">Test1</h1>
   </div>
 </nav>
+
+<!-- TODO: populate only have this appear if there are items -->
+<div class="list-group">
+  <button type="button" class="list-group-item list-group-item-action" *ngFor="let recipe of recipes$ | async">{{recipe.title}}</button>
+</div>
