@@ -39,11 +39,17 @@
           Logout
       </button>
     </form>
-    <h1 (click)="changeRecipe($event)">Test1</h1>
   </div>
 </nav>
 
 <!-- TODO: populate only have this appear if there are items -->
 <div class="list-group">
-  <button type="button" class="list-group-item list-group-item-action" *ngFor="let recipe of recipes$ | async">{{recipe.title}}</button>
+  <div *ngFor="let recipe of recipes$ | async">
+    <button
+      type="button"
+      class="list-group-item list-group-item-action"
+      (click)="changeRecipe(recipe)">
+        {{recipe.title}}
+    </button>
+  </div>
 </div>

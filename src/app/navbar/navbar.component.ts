@@ -36,8 +36,8 @@ export class NavbarComponent implements OnInit {
     this.searchTerms.next(term);
   }
 
-  public changeRecipe(recipe: any): void {
-    console.log('Clicked: ', recipe.target);
+  public changeRecipe(recipe: Recipe): void {
+    console.log('Clicked: ', recipe);
     this.onSearch.emit(recipe);
   }
 
