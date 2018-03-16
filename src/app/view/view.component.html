@@ -15,3 +15,7 @@
     </div>
   </ng-template>
 </ngb-carousel>
+<div align="center">
+  <h1 id="primaryTitle" class="display-1">{{recipe.title}}</h1>
+  <p class="tm-tag tm-tag-small" *ngFor="let tags of recipe.Tags">{{tags.tag}}</p>
+</div>
