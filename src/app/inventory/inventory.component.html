@@ -1,5 +1,7 @@
-<li
-  *ngFor="let recipe of recipes"
-  (click)="changeRecipe(recipe)">
-    <button class="btn btn-default">{{recipe.title}}</button>
+<li *ngFor="let recipe of recipes">
+    <button
+      class="btn btn-default"
+      (click)="changeRecipe(recipe)">
+        {{recipe.title}}
+    </button>
 </li>

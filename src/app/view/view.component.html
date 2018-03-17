@@ -2,17 +2,9 @@
 <ngb-carousel class="carousel slide">
   <ng-template ngbSlide class="carousel-inner">
     <img [src]="recipe.imageUrl" alt="Random first slide">
-    <div class="carousel-caption">
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </div>
   </ng-template>
   <ng-template ngbSlide *ngFor="let photo of recipe.Photos; index as i">
     <img [src]="photo.image" alt="Random second slide">
-    <div class="carousel-caption">
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </div>
   </ng-template>
 </ngb-carousel>
 <div align="center">
