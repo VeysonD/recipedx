@@ -1,0 +1,51 @@
+.modal-profile {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.profile-image {
+  width: 35%;
+  height: auto;
+  margin-right: 10px;
+  float: left;
+}
+
+.bio {
+  color: #555;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.profile-title {
+  color: #555;
+  margin-bottom: 10px
+}
+
+.profile-link {
+  text-align: left;
+}
+
+.team-member {
+  display: block;
+}
+
+.profile {
+  clear: left;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+/*  margin-bottom: 120px;
+*/
+}
+
+.team {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
