@@ -7,18 +7,20 @@ import { of } from 'rxjs/observable/of';
 
 import { Recipe } from './../../recipe';
 import { Upload } from './../../upload-recipe';
+import { environment } from './../../../environments/environment';
 
 
 @Injectable()
 export class RecipeService {
   //TODO: obscure the API endpoint
 
-  private recipeApi = 'http://127.0.0.1:4201/api';
+  private recipeApi = environment.apiEndpoint;
   private httpOptions = null;
 
   constructor(private http: HttpClient) { }
 
   getRecipes(): Observable<Recipe[]> {
+    console.log('What is the environment that was loaded: ', environment);
     this.establishHeaders();
     return this.http.get<Recipe[]>(this.recipeApi + '/recipes', this.httpOptions)
       .pipe(
