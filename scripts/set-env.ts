@@ -14,8 +14,13 @@ const targetPath = `./src/environments/environments.${environment}.ts`;
 const envConfigFile = `
   export const environment = {
     production: ${isProd},
-    superSecretKey: "${process.env.TODO}",
-    superDuperSecret: "${process.env.TODO}"
+    server: "${process.env.SERVER}",
+    port: ${process.env.PORT},
+    audience: "${process.env.AUDIENCE}",
+    apiEndpoint: "${process.env.API_ENDPOINT}",
+    clientId: "${process.env.CLIENT_ID}",
+    domain: "${process.env.DOMAIN}",
+    authRedirect: "${process.env.AUTH_REDIRECT}"
   };
 `
 
