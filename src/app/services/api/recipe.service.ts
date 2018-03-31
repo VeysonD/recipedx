@@ -20,7 +20,6 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   getRecipes(): Observable<Recipe[]> {
-    console.log('What is the environment that was loaded: ', environment);
     this.establishHeaders();
     return this.http.get<Recipe[]>(this.recipeApi + '/recipes', this.httpOptions)
       .pipe(
