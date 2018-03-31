@@ -6,6 +6,9 @@ RecipeDX is an Angular 5 and TypeScript rewrite of [Recipe Archive](https://gith
 
 1. [Team](#team)
 1. [Screenshots](#screenshots)
+1. [Demo](#demo)
+1. [Installation](#installation)
+
 
 ## Team
 
@@ -21,5 +24,13 @@ RecipeDX is an Angular 5 and TypeScript rewrite of [Recipe Archive](https://gith
 - __Development Team Members__: Rick Gallegos
 
 ## Screenshots
+
+- Coming soon
+
+## Demo
+
+- Coming soon
+
+## Installation
 
 - Coming soon
