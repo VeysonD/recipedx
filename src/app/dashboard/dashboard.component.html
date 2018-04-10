@@ -1,25 +1,27 @@
 <app-navbar (onSearch)="recipeClick($event)"></app-navbar>
-<div class="list">
-  <ul class="upload-recipe" (click)="uploadClick()">
-    <li *ngIf="upload">
-      <button class="btn btn-primary">Return home</button>
-    </li>
-    <li *ngIf="!upload">
-      <button class="btn btn-primary">Upload a new recipe</button>
-    </li>
-  </ul>
-  <ul class="list-recipe">
-      <app-inventory
-        [recipes]="recipes"
-        (onRecipe)="recipeClick($event)">
-      </app-inventory>
-  </ul>
-</div>
-<div class="main-view">
-  <div class="upload-recipe" *ngIf="upload">
-    <app-upload></app-upload>
+<div class="container">
+  <div class="list d-inline-block">
+    <ul class="upload-recipe" (click)="uploadClick()">
+      <li *ngIf="upload">
+        <button class="btn btn-primary">Return home</button>
+      </li>
+      <li *ngIf="!upload">
+        <button class="btn btn-primary">Upload a new recipe</button>
+      </li>
+    </ul>
+    <ul class="list-recipe">
+        <app-inventory
+          [recipes]="recipes"
+          (onRecipe)="recipeClick($event)">
+        </app-inventory>
+    </ul>
   </div>
-  <div class="primary-recipe" *ngIf="!upload && selectedRecipe">
-    <app-view [recipe]="selectedRecipe"></app-view>
+  <div class="main-view d-inline-block">
+    <div class="upload-recipe" *ngIf="upload">
+      <app-upload></app-upload>
+    </div>
+    <div class="primary-recipe" *ngIf="!upload && selectedRecipe">
+      <app-view [recipe]="selectedRecipe"></app-view>
+    </div>
   </div>
 </div>
