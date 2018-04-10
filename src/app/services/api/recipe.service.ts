@@ -12,7 +12,6 @@ import { environment } from './../../../environments/environment';
 
 @Injectable()
 export class RecipeService {
-  //TODO: obscure the API endpoint
 
   private recipeApi = environment.apiEndpoint;
   private httpOptions = null;
