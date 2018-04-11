@@ -1,87 +1,90 @@
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-profile">
-    <div class="modal-header">
-      <h2 class="modal-title profile-title">Meet the Team!</h2>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
+<div id="page-wrapper">
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-profile">
+      <div class="modal-header">
+        <h2 class="modal-title profile-title">Meet the Team!</h2>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+      <div class="profile">
+       <li class="team-member">
+          <a href="https://github.com/schaeferCode">
+            <img class="profile-image" src="https://avatars3.githubusercontent.com/u/28928299?v=4&s=460">
+          </a>
+          <p class="bio">Scott Schaefer is committed to clean code, continuous learning, and getting things done. He triumphed in learning user authentication for the Recipe Archive and his  adherence to time boxing kept the app on track to completion.</p>
+        </li>
+      </div>
+      <div class="profile">
+        <li class="team-member">
+          <a href="https://github.com/ZimChristine">
+            <img class="profile-image" src="https://avatars3.githubusercontent.com/u/20617878?v=4&u=cfe659e671a928d3b62c6df3c6b9b28d6ae9ab1b&s=400">
+          </a>
+          <p class="bio">Working with Christine was a true pleasure. Her technical skill with the full-stack and persistence in hammering out new tech was inspirational and a joy to experience. 10 out of 10, would work with again.</p>
+        </li>
+      </div>
+      <div class="profile">
+        <li class="team-member">
+          <a href="https://www.linkedin.com/in/sonrisa-chen-68559a5a">
+            <img class="profile-image" src="https://avatars2.githubusercontent.com/u/28817696?v=4&u=515f2198a1f24aaffdcb73c17679b2bdfdd77bcb&s=400">
+          </a>
+          <p class="bio">Sonrisa fearlessly drove a piece of functionality that none of the group had experience with to total completion. With her strict attention to detail she easily became the group’s Git sensei.</p>
+        </li>
+      </div>
+      <div class="profile">
+        <li class="team-member">
+          <a href="https://www.linkedin.com/in/scott-mitchell-5a296423">
+            <img class="profile-image" src="https://avatars0.githubusercontent.com/u/2523064?v=4&s=400">
+          </a>
+          <p class="bio">Scott Mitchell was known to the group as the database master. However, he not only proved to be vital to the backend, he created heavily on the frontend as well, displaying his finesse with AngularJs.</p>
+        </li>
+      </div>
+      <div class="profile">
+        <li class="team-member">
+          <a href="https://www.linkedin.com/in/ricardo-q-gallegos">
+            <img class="profile-image" src="https://avatars0.githubusercontent.com/u/26846780?v=4&u=8b0cbbaf14548845d58ab7d5c95fe188e1e6713b&s=400">
+          </a>
+          <p class="bio">Not only having a vast amount of technical skill, Rick’s curiosity and persistence earned him the reputation of being Mr. Fix-it. Nearly every part of this project has Rick’s fingerprint on it as result.</p>
+        </li>
+      </div>
+    </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+      </div>
+    </div>
+  </ng-template>
+
+
+  <section id="banner">
+    <div class="inner">
+      <h2>Saving your family legacy in one place with Angular 5!</h2>
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="!authService.authenticated"
+        (click)="authService.login()">
+          Login
+      </button>
+
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="authService.authenticated"
+        routerLink="/dashboard">
+          Back to Inventory
+      </button>
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="authService.authenticated"
+        (click)="authService.logout()">
+          Logout
+      </button>
+      <button
+       class="btn btn-putline-primary btn-margin"
+       (click)="open(content)">
+         Meet the team
       </button>
     </div>
-    <div class="modal-body">
-      <ul>
-    <div class="profile">
-     <li class="team-member">
-        <a href="https://github.com/schaeferCode">
-          <img class="profile-image" src="https://avatars3.githubusercontent.com/u/28928299?v=4&s=460">
-        </a>
-        <p class="bio">Scott Schaefer is committed to clean code, continuous learning, and getting things done. He triumphed in learning user authentication for the Recipe Archive and his  adherence to time boxing kept the app on track to completion.</p>
-      </li>
-    </div>
-    <div class="profile">
-      <li class="team-member">
-        <a href="https://github.com/ZimChristine">
-          <img class="profile-image" src="https://avatars3.githubusercontent.com/u/20617878?v=4&u=cfe659e671a928d3b62c6df3c6b9b28d6ae9ab1b&s=400">
-        </a>
-        <p class="bio">Working with Christine was a true pleasure. Her technical skill with the full-stack and persistence in hammering out new tech was inspirational and a joy to experience. 10 out of 10, would work with again.</p>
-      </li>
-    </div>
-    <div class="profile">
-      <li class="team-member">
-        <a href="https://www.linkedin.com/in/sonrisa-chen-68559a5a">
-          <img class="profile-image" src="https://avatars2.githubusercontent.com/u/28817696?v=4&u=515f2198a1f24aaffdcb73c17679b2bdfdd77bcb&s=400">
-        </a>
-        <p class="bio">Sonrisa fearlessly drove a piece of functionality that none of the group had experience with to total completion. With her strict attention to detail she easily became the group’s Git sensei.</p>
-      </li>
-    </div>
-    <div class="profile">
-      <li class="team-member">
-        <a href="https://www.linkedin.com/in/scott-mitchell-5a296423">
-          <img class="profile-image" src="https://avatars0.githubusercontent.com/u/2523064?v=4&s=400">
-        </a>
-        <p class="bio">Scott Mitchell was known to the group as the database master. However, he not only proved to be vital to the backend, he created heavily on the frontend as well, displaying his finesse with AngularJs.</p>
-      </li>
-    </div>
-    <div class="profile">
-      <li class="team-member">
-        <a href="https://www.linkedin.com/in/ricardo-q-gallegos">
-          <img class="profile-image" src="https://avatars0.githubusercontent.com/u/26846780?v=4&u=8b0cbbaf14548845d58ab7d5c95fe188e1e6713b&s=400">
-        </a>
-        <p class="bio">Not only having a vast amount of technical skill, Rick’s curiosity and persistence earned him the reputation of being Mr. Fix-it. Nearly every part of this project has Rick’s fingerprint on it as result.</p>
-      </li>
-    </div>
-  </ul>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
-    </div>
-  </div>
-</ng-template>
-
-<div id="page-wrapper">
-  <section class="banner">
-    <h2>Saving your family legacy in one place with Angular 5!</h2>
-    <button
-      class="btn btn-primary btn-margin"
-      *ngIf="!authService.authenticated"
-      (click)="authService.login()">
-        Login
-    </button>
-
-    <button
-      class="btn btn-primary btn-margin"
-      *ngIf="authService.authenticated"
-      routerLink="/dashboard">
-        Back to Inventory
-    </button>
-    <button
-      class="btn btn-primary btn-margin"
-      *ngIf="authService.authenticated"
-      (click)="authService.logout()">
-        Logout
-    </button>
-    <button
-     class="btn btn-putline-primary btn-margin"
-     (click)="open(content)">
-       Meet the team
-    </button>
   </section>
 </div>
