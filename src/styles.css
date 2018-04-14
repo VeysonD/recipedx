@@ -1,2 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css');
+
+html, body, div, span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: "Helvetica Neue";
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+body, select, textarea {
+  color: #fff;
+  font-size: 15pt;
+  font-weight: 400;
+  letter-spacing: 0.075em;
+  line-height: 1.65em;
+}
+
+input {
+  color: black;
+  font-size: 8pt;
+}
+
+strong, b {
+  color: #fff;
+  font-weight: 600;
+}
+
+h1, h2{
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.225em;
+  line-height: 1em;
+  margin: 0 0 1em 0;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.35em;
+  line-height: 1.75em;
+}
+
+h4, p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+.container {
+  color: #5d5e60;
+  margin-top: 10px;
+}
