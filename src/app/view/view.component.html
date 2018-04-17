@@ -1,12 +1,14 @@
-<ngb-carousel class="carousel slide">
-  <ng-template ngbSlide class="carousel-inner">
-    <img [src]="recipe.imageUrl" alt="Random first slide">
-  </ng-template>
-  <ng-template ngbSlide *ngFor="let photo of recipe.Photos; index as i">
-    <img [src]="photo.image" alt="Random second slide">
-  </ng-template>
-</ngb-carousel>
-<div align="center">
-  <h1 id="primaryTitle" class="display-1">{{recipe.title}}</h1>
-  <p class="tm-tag tm-tag-small" *ngFor="let tags of recipe.Tags">{{tags.tag}}</p>
+<div class="container">
+  <ngb-carousel class="carousel slide">
+    <ng-template ngbSlide class="carousel-inner">
+      <img [src]="recipe.imageUrl" alt="Random first slide">
+    </ng-template>
+    <ng-template ngbSlide *ngFor="let photo of recipe.Photos; index as i">
+      <img [src]="photo.image" alt="Random second slide">
+    </ng-template>
+  </ngb-carousel>
+  <div align="center">
+    <h1 id="primaryTitle" class="display-1">{{recipe.title}}</h1>
+    <p class="tm-tag tm-tag-small" *ngFor="let tags of recipe.Tags">{{tags.tag}}</p>
+  </div>
 </div>
